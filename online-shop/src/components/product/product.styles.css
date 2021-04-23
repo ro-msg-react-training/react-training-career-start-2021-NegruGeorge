@@ -1,0 +1,48 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.product{
+    
+    margin:10px;
+    width: 250px;
+    height: 250px;
+    border: solid 1px;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 8%;
+    
+}
+
+
+.imgProduct{
+    width: 150px;
+    height: 150px;
+   
+    transition:1.5s;
+    border-radius: 8%;
+}
+
+.imgProduct:hover{
+  transform:scale(1.6);
+  overflow: hidden;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+}
+
+.headProd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.prodcateogry{
+    font-size: 10px;
+
+}
+    
