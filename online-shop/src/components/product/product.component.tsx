@@ -1,7 +1,8 @@
 import React from 'react';
-// import { preProcessFile } from 'typescript';
-
-import "./product.styles.css"
+import useProductStyles from "./product.styles"
+import { Button,Grid} from "@material-ui/core";
+import Typeograpy from "@material-ui/core/Typography"
+import { Link } from "react-router-dom";
 
 
 export interface Produs {
@@ -12,25 +13,30 @@ export interface Produs {
     imageUrl: String
 }
 
-// m-am oprit aici cu style ul pana ma uit peste materialUI :(
-// nu e responsive inca
 
-const Product = ( props:Produs ) =>(
-    <div className="product">
-        <div className="headProd">
-  
-            <h1 className="prodName">{props.name}</h1>
-            <h1 className="prodcateogry">({ props.category})</h1>
+const Product = ( props:Produs ) =>{
+    let prodId:number = props.id;
     
-           
-        </div>
-        <img className="imgProduct" src= { ` ${props.imageUrl} ` } alt=""  />
+    const classes = useProductStyles();
+    return(
+    <Grid container className={classes.product}>
+        <Grid item className={classes.headProd}>
+            <Typeograpy className={classes.prodName}>{props.name}</Typeograpy>
+            <Typeograpy className={classes.prodcategory}>({props.category})</Typeograpy>
+        </Grid>
+        <Grid item>
+            <img className={classes.imgProduct} src= { ` ${props.imageUrl} ` } alt=""  />
+        </Grid>
+        
+        <Grid item className={classes.footProd}>
+            <Typeograpy className={classes.price}>{props.price}$</Typeograpy> 
+            <Link to= {{pathname: `/products/${props.id}`, state: {product :props} } }  >
+                 <Typeograpy  className={classes.button}>Details</Typeograpy>
+            </Link>
+      
+        </Grid>
 
-        <div> <h1>{props.price}$</h1></div> 
+    </Grid>
 
-
-    </div>
-
-)
-
+)}
 export default Product;
