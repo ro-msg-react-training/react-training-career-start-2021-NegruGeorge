@@ -1,6 +1,13 @@
 # Compiled class file
 *.class
 
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+**/node_modules
+node_modules/
 # Log file
 *.log
 
@@ -23,3 +30,5 @@
 hs_err_pid*
 
 .vscode
+node_modules
+node_modules
